@@ -1,2 +1,2 @@
 #!/bin/bash
-nfind . -name "*.js" -type f -delete' > 10-no_more_js 
+find . -name "*.js" -type f -delete
