@@ -2,12 +2,12 @@
 #display Best School 10 times.
 
 count=1
-while [ $count -lt 10 ]
+while [ $count -lt 11 ]
 do
-    if [ $count -eq 3 ]
+    if [ $count -eq 4 ]
     then
 	    echo "bad luck"
-    elif [ $count -eq 7 ]
+    elif [ $count -eq 8 ]
     then
 	    echo "good luck"
     else
