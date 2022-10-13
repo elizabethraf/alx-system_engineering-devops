@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#display Best School 10 times.
+
+count=0
+while [ $count -lt 20 ]
+do
+    if [ $count -eq 3 ]
+    then
+	    echo "bad luck from China"
+    elif [ $count -eq 8 ]
+    then
+	    echo "bad luck from Japan"
+    else [ $count -eq 16 ]
+	    echo "bad luck from Italy"
+    fi
+    count=$(((count+1)))
+done 
