@@ -26,8 +26,7 @@ int main(void)
 	pid_t zombie = fork();
 	int k;
 
-	k = 0;
-	while (k < 5)
+	for (k = 0; k < 5; k++)
 	{
 
 	if (zombie > 0)
