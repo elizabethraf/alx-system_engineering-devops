@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays the current running process.
+
+ps -aux | less
