@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+#Display of PID script.
+
 echo "PID of this script: $$"
