@@ -9,3 +9,6 @@ Master-slave replication enables data from one database server (the master) to b
 
 Difference between master and replica:  The difference is that the primary is a read and write database while th replica is mostly the read only Database.
 
+
+Image URL: https://github.com/elizabethraf/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/img/1-distributed_web_infrastructureERaf.png
+

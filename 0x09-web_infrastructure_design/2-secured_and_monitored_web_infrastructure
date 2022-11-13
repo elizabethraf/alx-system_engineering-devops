@@ -25,3 +25,9 @@ unencrypted, and that will leave applications vulnerable to Man-in-the-Middle At
 Known Issues in MySQL:
 - Even if you use lower_case_table_names=2 (which enables MySQL to remember the case used for databases and table names), MySQL does not remember the case used for database names for the function DATABASE() or within the various logs (on case-insensitive systems). 
 - Dropping a FOREIGN KEY constraint does not work in replication because the constraint may have another name on the replica. 
+
+
+
+
+Image URL: https://github.com/elizabethraf/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/img/2-secured_and_monitored_webERaf.png
+
