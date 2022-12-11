@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Client configuration file.
+Host 53255-web-01
+  User ubuntu
+  IdentityFile ~/.ssh/school
+  IdentitiesOnly yes
+
