@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# using ssh to connect servers using key.
 ssh -i ~/.ssh/school ubuntu@53255-web-01
 
