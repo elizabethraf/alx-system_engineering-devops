@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script Apache Server
+docker exec -it 1532ce979a41 /bin/bash
+service apache2 start
+
