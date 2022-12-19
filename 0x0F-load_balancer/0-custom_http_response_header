@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Double the number of webservers 
+ssh -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2 bash ~/1-install_nginx_web_server"
+
