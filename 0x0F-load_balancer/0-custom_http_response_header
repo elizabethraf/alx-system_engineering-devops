@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-# Double the number of webservers 
-ssh -i "$4" -o StrictHostKeyChecking=no  $3@$2 "bash ~/$1"
+# Script for Nginx server
+sudo apt-get update -y
+sudo apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i '/^\W*#.*/d' /etc/nginx/sites-available/default
+sudo sed -i '/^\W*location \/ {.*/!b;/^/a\\t  add_header X-Served-By \$Hostname;' /etc/nginx/sites-available/default
+sudo nginx -t
+sudo service nginx restart
 
