@@ -2,7 +2,7 @@
 # Install your load balancer
 sudo apt-get update -y
 sudo apt-get install -y haproxy
-sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+echo "ENABLED=1"|sudo tee /etc/default/haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
 sudo sed -i "\$a $CFG" /etc/haproxy/haproxy.cfg
 
