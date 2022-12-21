@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Display Bash Script shortcut.
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-pkill "$(pgrep 'nginx' | head -1)"
 service nginx start
+pkill "$(pgrep 'nginx' | head -1)"
 
