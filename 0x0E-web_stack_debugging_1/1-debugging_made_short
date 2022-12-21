@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Display Bash Script shortcut.
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx start
+service nginx restart
 
