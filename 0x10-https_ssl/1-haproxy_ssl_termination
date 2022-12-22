@@ -1,0 +1,50 @@
+global
+        log /dev/log    local0
+        log /dev/log    local1 notice
+        chroot /var/lib/haproxy
+        stats socket /run/haproxy/admin.sock mode 660 level admin
+        stats timeout 30s
+        user haproxy
+        group haproxy
+        daemon
+
+defaults
+	log      global
+	mode     http
+	option   httplog
+	option   dontlognull
+	retries  3
+	option   redispatch
+	timeout  connect 5000
+	timeout  client 10000
+	timeout  server 10000
+	option   forwardfor
+	option   http-server-close
+
+ 	# Setting up SSL from tutorial
+        # https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04
+        maxconn 2048
+        tune.ssl.default-dh-param 2048
+
+        # Default SSL material locations
+        ca-base /etc/ssl/certs
+        crt-base /etc/ssl/private
+
+frontend www-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.melissax.online.pem
+        reqadd X-Forwarded-Proto:\ https
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend www-backend
+
+frontend www-http
+	bind   0.0.0.0:80
+	reqadd  X-Forwarded-Proto:\ http
+	default_backend www-backend
+	redirect scheme https code 301 if !{ ssl_fc }
+
+backend www-backend
+	balance    roundrobin
+	redirect scheme https if !{ ssl_fc }
+	server 1313-web-01 34.139.21.144:80 check
+	server 1313-web-02 44.192.90.48:80 check
