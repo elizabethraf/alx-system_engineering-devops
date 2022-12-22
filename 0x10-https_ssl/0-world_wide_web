@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Displays DNS records: record type, IP, subdomains
+
+prev ()
+{
+    printf "The subdomain %s is a " "$2"
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $4 }'
+    printf " record and points to "
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $5 }'
+    echo ""
+}
+
+if [ "$#" == 1 ]
+then
+	prev "$1" "www"
+	prev "$1" "lb-01"
+	prev "$1" "web-01"
+	prev "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+	prev "$1" "$2"
+fi
+
