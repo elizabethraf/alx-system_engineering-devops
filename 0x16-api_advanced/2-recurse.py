@@ -6,9 +6,9 @@ import sys
 
 
 def recurse(subreddit, after=None, hot_list=[]):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36"
-    }
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
+               AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61\
+               Safari/537.36"}
     params = {
         "limit": 100,
         "t": "all",
@@ -33,4 +33,3 @@ def recurse(subreddit, after=None, hot_list=[]):
         return recurse(subreddit, after, hot_list)
     else:
         return hot_list
-
